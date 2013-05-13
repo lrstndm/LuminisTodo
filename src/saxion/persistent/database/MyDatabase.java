@@ -6,18 +6,23 @@ import android.database.sqlite.SQLiteOpenHelper;
 
 public class MyDatabase extends SQLiteOpenHelper{
 	/**
-	 * Variabelen die de database layout weergeven. Zie ook de opdrachtsomschrijving.
-	 * De tabel zelf heet "notes" en kent de kolommen: "_id", "title" en "content".
+	 * Variabelen die de database layout weergeven.
 	 */
-	public static final String TABLE_NOTES = "notes";
+	public static final String TABLE_TAAK = "Taak";
 	public static final String COLUMN_ID = "_id";
-	public static final String COLUMN_TITLE = "title";
-	public static final String COLUMN_CONTENT = "content";
-	
+	public static final String COLUMN_GENRE_ID = "title";
+	public static final String COLUMN_TITLE = "content";
+	public static final String COLUMN_COMMENT = "comment";
+	public static final String COLUMN_IS_DONE = "isDone";
+	public static final String COLUMN_PARENT_ID = "parentId";
+	public static final String COLUMN_CREATED = "created";
+	public static final String COLUMN_END_DATE = "end_date";
+	public static final String COLUMN_REMINDER = "reminder";
+	public static final String COLUMN_REPEAT = "repeat";
 	/**
 	 * Variabelen die de bestandsnaam van de SQLite database en het versienummer bewaren.
 	 */
-	private static final String DATABASE_FILENAME = "notes.db";	
+	private static final String DATABASE_FILENAME = "taak.db";	
 	private static int DATABASE_VERSION = 1;
 	
 	/**
@@ -34,10 +39,17 @@ public class MyDatabase extends SQLiteOpenHelper{
 	 */
 	@Override
 	public void onCreate(SQLiteDatabase database) {
-		database.execSQL("create table "+  TABLE_NOTES + 
+		database.execSQL("create table "+  TABLE_TAAK + 
 				"(" + COLUMN_ID + " integer primary key autoincrement, "
-				+ COLUMN_TITLE + " text not null, "						
-				+ COLUMN_CONTENT + " text not null);");					
+				+ COLUMN_GENRE_ID + " integer, "						
+				+ COLUMN_TITLE + " text not null, "
+				+ COLUMN_COMMENT + " text, "	
+				+ COLUMN_IS_DONE + " boolean not null, "	
+				+ COLUMN_PARENT_ID + " integer not null, "	
+				+ COLUMN_CREATED + " datetime not null, "	
+				+ COLUMN_END_DATE + " datetime, "	
+				+ COLUMN_REMINDER + " text, "	
+				+ COLUMN_REPEAT + " text);");					
 	}
 
 	/**
@@ -45,7 +57,7 @@ public class MyDatabase extends SQLiteOpenHelper{
 	 */
 	@Override
 	public void onUpgrade(SQLiteDatabase database, int oldVersion, int newVersion) {
-		database.execSQL("DROP TABLE IF EXISTS " + TABLE_NOTES);
+		database.execSQL("DROP TABLE IF EXISTS " + TABLE_TAAK);
 		onCreate(database);
 	}
 }
