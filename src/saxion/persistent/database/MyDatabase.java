@@ -13,8 +13,8 @@ public class MyDatabase extends SQLiteOpenHelper{
 	public static final String COLUMN_GENRE_ID = "title";
 	public static final String COLUMN_TITLE = "content";
 	public static final String COLUMN_COMMENT = "comment";
-	public static final String COLUMN_IS_DONE = "isDone";
-	public static final String COLUMN_PARENT_ID = "parentId";
+	public static final String COLUMN_IS_DONE = "is_done";
+	public static final String COLUMN_PARENT_ID = "parent_id";
 	public static final String COLUMN_CREATED = "created";
 	public static final String COLUMN_END_DATE = "end_date";
 	public static final String COLUMN_REMINDER = "reminder";
