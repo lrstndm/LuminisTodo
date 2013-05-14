@@ -1,9 +1,5 @@
 package saxion.persistent.luministodo;
 
-import com.example.luministodo.R;
-import com.example.luministodo.R.layout;
-import com.example.luministodo.R.menu;
-
 import android.os.Bundle;
 import android.app.Activity;
 import android.view.Menu;
