@@ -60,4 +60,5 @@ public class MyDatabase extends SQLiteOpenHelper{
 		database.execSQL("DROP TABLE IF EXISTS " + TABLE_TAAK);
 		onCreate(database);
 	}
+	
 }
